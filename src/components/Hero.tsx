@@ -1,70 +1,53 @@
-import gloriaPhoto from "@/assets/gloria-rosado-photo.jpg";
-import { Button } from "@/components/ui/button";
+import { Button } from "./ui/button";
+import gloriaBanner from "@/assets/gloria-rosado-banner.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center pt-16 bg-gradient-to-br from-accent/20 via-primary/10 to-background">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-accent to-background pt-16">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="space-y-6 animate-fade-in">
-            <div className="inline-block">
-              <p className="text-sm md:text-base font-heading font-semibold text-muted-foreground mb-2">
-                Elect / Élisez
-              </p>
-              <h1 className="text-5xl md:text-7xl font-heading font-extrabold text-foreground mb-4">
-                Gloria Rosado
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground font-heading font-semibold">
-                Westmount City Councillor District 7
-              </p>
-              <p className="text-lg md:text-xl text-muted-foreground font-heading font-semibold">
-                Conseillère municipale District 7
-              </p>
-            </div>
-
+        <div className="grid lg:grid-cols-2 gap-8 items-center max-w-7xl mx-auto">
+          <div className="text-left space-y-6 animate-fade-in order-2 lg:order-1">
             <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary leading-tight">
-                A practical, inclusive voice for District 7.
-              </h2>
-              <h2 className="text-3xl md:text-4xl font-heading font-bold text-accent leading-tight">
-                Une voix pratique et inclusive pour le district 7.
-              </h2>
+              <h1 className="text-5xl lg:text-6xl font-heading font-black text-secondary leading-tight uppercase" style={{ fontWeight: 900 }}>
+                A voice that listens, acts, and delivers for District 7.
+              </h1>
             </div>
-
-            <div className="space-y-3">
-              <p className="text-2xl md:text-3xl font-heading font-bold text-secondary">
-                Together, Yes We Can
-              </p>
-              <p className="text-2xl md:text-3xl font-heading font-bold text-primary">
-                Ensemble, nous pouvons
-              </p>
-            </div>
-
+            
+            <p className="text-3xl lg:text-4xl font-heading font-bold text-secondary">
+              Together, Yes We Can
+            </p>
+            
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button
-                size="lg"
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-heading font-bold text-lg shadow-glow"
-                asChild
+              <Button 
+                size="lg" 
+                className="text-lg px-8 py-6 bg-primary text-white hover:bg-primary/90 font-bold shadow-glow border-2 border-secondary"
+                onClick={() => {
+                  const supportSection = document.getElementById('support');
+                  supportSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
-                <a href="#support">Express Support / Soutenir</a>
+                Express your support
               </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-primary text-primary hover:bg-primary/10 font-heading font-bold text-lg"
-                asChild
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-lg px-8 py-6 border-2 border-secondary text-secondary hover:bg-secondary hover:text-background font-bold"
+                onClick={() => {
+                  const aboutSection = document.getElementById('about');
+                  aboutSection?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
-                <a href="#about">Learn More / En savoir plus</a>
+                Learn More
               </Button>
             </div>
           </div>
-
-          <div className="relative animate-slide-up">
+          
+          <div className="relative animate-fade-in order-1 lg:order-2">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
-              <img
-                src={gloriaPhoto}
-                alt="Gloria Rosado - Candidate for Westmount District 7 City Councillor"
-                className="w-full h-auto"
+              <img 
+                src={gloriaBanner} 
+                alt="Gloria Rosado - Candidate for Westmount District 7 City Councillor" 
+                className="w-full h-auto object-cover"
               />
             </div>
           </div>

@@ -1,131 +1,80 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, MapPin, Facebook, Mail } from "lucide-react";
-
-const meetups = [
-  {
-    date: "Tuesday, October 14",
-    dateFr: "Mardi, 14 octobre",
-    time: "11:00 AM",
-    timeFr: "11h",
-    location: "Mouton Noir, Coffee",
-    address: "4675 Rue Sherbrooke",
-  },
-  {
-    date: "Saturday, October 18",
-    dateFr: "Samedi, 18 octobre",
-    time: "10:00 AM",
-    timeFr: "10h",
-    location: "Westmount Recreation Center",
-    locationFr: "Centre des Loisirs de Westmount",
-    address: "4675 Rue Ste-Catherine O",
-  },
-];
+import { Button } from "./ui/button";
+import { Card, CardContent } from "./ui/card";
+import { Calendar, Users, Facebook } from "lucide-react";
 
 const Support = () => {
   return (
-    <section id="support" className="py-20 bg-gradient-to-br from-primary/10 via-accent/10 to-background">
+    <section id="support" className="py-20 bg-gradient-to-br from-accent via-background to-accent">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
-              Get Involved / Participez
+        <div className="max-w-4xl mx-auto text-center space-y-12">
+          <div className="space-y-4 animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-heading font-bold text-secondary">
+              Get Involved / Impliquez-vous
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto" />
+            <p className="text-xl text-foreground">
+              Join us in making District 7 an even better place to live
+            </p>
+            <p className="text-xl text-muted-foreground italic">
+              Rejoignez-nous pour faire du District 7 un endroit encore meilleur où vivre
+            </p>
+            <div className="h-1 w-24 bg-secondary mx-auto rounded-full" />
           </div>
 
-          <Card className="mb-12 border-2 border-primary shadow-xl bg-card">
-            <CardHeader className="bg-gradient-to-r from-primary to-accent text-primary-foreground">
-              <CardTitle className="text-3xl font-heading font-bold text-center">
-                Meet the Candidate! / Rencontrez la candidate !
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-6">
-              <div className="space-y-6">
-                {meetups.map((meetup, index) => (
-                  <div
-                    key={index}
-                    className="p-6 bg-muted/50 rounded-lg border border-border hover:border-primary transition-colors"
-                  >
-                    <div className="flex items-start gap-4">
-                      <Calendar className="h-6 w-6 text-primary mt-1 flex-shrink-0" />
-                      <div className="flex-1 space-y-2">
-                        <p className="text-lg font-heading font-bold text-foreground">
-                          {meetup.date} / {meetup.dateFr}
-                        </p>
-                        <p className="text-foreground">
-                          {meetup.time} / {meetup.timeFr}
-                        </p>
-                        <div className="flex items-start gap-2">
-                          <MapPin className="h-5 w-5 text-accent mt-1 flex-shrink-0" />
-                          <div>
-                            <p className="font-semibold text-foreground">
-                              {meetup.location}
-                              {meetup.locationFr && ` / ${meetup.locationFr}`}
-                            </p>
-                            <p className="text-muted-foreground">{meetup.address}</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            <Card className="p-8 bg-card/80 backdrop-blur-sm border-2 border-primary/30 hover:border-secondary transition-all duration-300 animate-fade-in">
+              <CardContent className="p-0 space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-secondary/20 rounded-full">
+                    <Calendar className="h-8 w-8 text-secondary" />
                   </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            <Card className="border-2 hover:border-primary transition-colors bg-card">
-              <CardHeader>
-                <CardTitle className="text-2xl font-heading font-bold text-foreground flex items-center gap-2">
-                  <Mail className="h-6 w-6 text-primary" />
-                  Express Your Support
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
-                  Show your support for Gloria Rosado and help build a better Westmount together.
-                </p>
-                <p className="text-muted-foreground italic">
-                  Exprimez votre soutien à Gloria Rosado et aidez à bâtir un meilleur Westmount ensemble.
-                </p>
-                <Button
-                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 font-heading font-bold shadow-glow"
-                  size="lg"
-                >
-                  Sign Up / Inscrivez-vous
-                </Button>
+                  <h3 className="text-2xl font-heading font-bold text-secondary">Upcoming Meetups</h3>
+                </div>
+                <div className="space-y-4 text-left">
+                  <div className="p-4 bg-muted rounded-lg">
+                    <p className="font-semibold text-lg text-foreground">Community Coffee Chat</p>
+                    <p className="text-sm text-muted-foreground">October 15, 2025 - 10:00 AM</p>
+                    <p className="text-sm text-muted-foreground">Westmount Public Library</p>
+                  </div>
+                  <div className="p-4 bg-muted rounded-lg">
+                    <p className="font-semibold text-lg text-foreground">Town Hall Meeting</p>
+                    <p className="text-sm text-muted-foreground">October 25, 2025 - 7:00 PM</p>
+                    <p className="text-sm text-muted-foreground">Victoria Hall</p>
+                  </div>
+                </div>
               </CardContent>
             </Card>
 
-            <Card className="border-2 hover:border-accent transition-colors bg-card">
-              <CardHeader>
-                <CardTitle className="text-2xl font-heading font-bold text-foreground flex items-center gap-2">
-                  <Facebook className="h-6 w-6 text-accent" />
-                  Stay Connected
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <p className="text-muted-foreground">
-                  Follow Gloria on social media for updates and community news.
-                </p>
-                <p className="text-muted-foreground italic">
-                  Suivez Gloria sur les réseaux sociaux pour des mises à jour et nouvelles communautaires.
-                </p>
-                <Button
-                  variant="outline"
-                  className="w-full border-accent text-accent hover:bg-accent/10 font-heading font-bold"
-                  size="lg"
-                  asChild
-                >
+            <Card className="p-8 bg-card/80 backdrop-blur-sm border-2 border-primary/30 hover:border-secondary transition-all duration-300 animate-fade-in">
+              <CardContent className="p-0 space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="p-3 bg-secondary/20 rounded-full">
+                    <Users className="h-8 w-8 text-secondary" />
+                  </div>
+                  <h3 className="text-2xl font-heading font-bold text-secondary">Get Connected</h3>
+                </div>
+                <div className="space-y-4">
+                  <Button 
+                    size="lg" 
+                    className="w-full bg-primary text-white hover:bg-primary/90 font-bold text-lg border-2 border-secondary"
+                  >
+                    Express Your Support
+                  </Button>
                   <a
                     href="https://www.facebook.com/GloriaRosadoLopez"
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="block"
                   >
-                    @GloriaWestmount7
+                    <Button 
+                      size="lg" 
+                      variant="outline"
+                      className="w-full border-2 border-secondary text-secondary hover:bg-secondary hover:text-background font-bold text-lg"
+                    >
+                      <Facebook className="mr-2 h-5 w-5" />
+                      Stay Connected on Facebook
+                    </Button>
                   </a>
-                </Button>
+                </div>
               </CardContent>
             </Card>
           </div>

@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Trees, ShieldCheck, Users, MessageSquare } from "lucide-react";
 
 const priorities = [
@@ -34,52 +34,48 @@ const priorities = [
 
 const Priorities = () => {
   return (
-    <section id="priorities" className="py-20 bg-background">
+    <section className="py-20 bg-gradient-to-b from-accent to-background">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold text-foreground mb-4">
-            Priorities / Priorités
-          </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-6" />
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Practical solutions for a better Westmount / Solutions pratiques pour un meilleur Westmount
-          </p>
-        </div>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center space-y-4 mb-16 animate-fade-in">
+            <h2 className="text-4xl lg:text-5xl font-heading font-bold text-secondary">
+              Key Priorities
+            </h2>
+            <p className="text-xl text-foreground">
+              My commitment to District 7 / Mon engagement envers le District 7
+            </p>
+            <div className="h-1 w-24 bg-secondary mx-auto rounded-full" />
+          </div>
 
-        <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          {priorities.map((priority, index) => {
-            const Icon = priority.icon;
-            return (
-              <Card
-                key={index}
-                className="border-2 hover:border-primary transition-all duration-300 hover:shadow-xl bg-card"
-              >
-                <CardHeader>
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-primary/10">
-                      <Icon className="h-8 w-8 text-primary" />
+          <div className="grid md:grid-cols-2 gap-8">
+            {priorities.map((priority, index) => (
+              <Card key={index} className="p-8 hover:shadow-xl transition-all duration-300 animate-fade-in border-2 border-primary/30 hover:border-secondary bg-card/80 backdrop-blur-sm">
+                <CardContent className="p-0 space-y-4">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-secondary/20 rounded-full">
+                      <priority.icon className="h-8 w-8 text-secondary" />
                     </div>
                     <div className="flex-1">
-                      <CardTitle className="text-2xl font-heading font-bold text-foreground mb-2">
+                      <h3 className="text-2xl font-heading font-bold text-secondary">
                         {priority.title}
-                      </CardTitle>
-                      <p className="text-lg font-heading font-semibold text-accent">
+                      </h3>
+                      <h3 className="text-xl font-heading font-semibold text-muted-foreground">
                         {priority.titleFr}
-                      </p>
+                      </h3>
                     </div>
                   </div>
-                </CardHeader>
-                <CardContent className="space-y-3">
-                  <p className="text-foreground leading-relaxed">
-                    {priority.description}
-                  </p>
-                  <p className="text-muted-foreground italic leading-relaxed">
-                    {priority.descriptionFr}
-                  </p>
+                  <div className="space-y-3">
+                    <p className="text-foreground leading-relaxed">
+                      {priority.description}
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed italic">
+                      {priority.descriptionFr}
+                    </p>
+                  </div>
                 </CardContent>
               </Card>
-            );
-          })}
+            ))}
+          </div>
         </div>
       </div>
     </section>
